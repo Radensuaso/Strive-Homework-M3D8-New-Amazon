@@ -1,21 +1,42 @@
-/* fetch("https://striveschool-api.herokuapp.com/api/put-your-endpoint-here/", {
-  headers: {
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjA5ZmIzNTgxNzAwMTVjMjI3MGMiLCJpYXQiOjE2MjUwNTUzOTEsImV4cCI6MTYyNjI2NDk5MX0.4rreCWruc8iinYHIIdhbPTQo52bs9c82UeMWN-fKg0o",
-  },
-})
- */
+const generateCard = (item) => {
+  return `
+  <div class="card">
+  <img class="img-fluid" src=${item.imageUrl} class="card-img-top" alt="${item.name} picture" />
+  <div class="card-body">
+    <h5 class="card-title">${item.name}</h5>
+    <p class="card-text"><strong>Brand:</strong> ${item.brand}</p>
+    <p class="card-text">${item.description}</p>
+    <span class="badge badge-primary">${item.price}€</span>
+  </div>
+    `
+}
 
 const displayItems = async (url) => {
-  const response = await fetch(url, {
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjA5ZmIzNTgxNzAwMTVjMjI3MGMiLCJpYXQiOjE2MjUwNTUzOTEsImV4cCI6MTYyNjI2NDk5MX0.4rreCWruc8iinYHIIdhbPTQo52bs9c82UeMWN-fKg0o",
-    },
-  })
+  try {
+    const response = await fetch(url, {
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjA5ZmIzNTgxNzAwMTVjMjI3MGMiLCJpYXQiOjE2MjUwNTUzOTEsImV4cCI6MTYyNjI2NDk5MX0.4rreCWruc8iinYHIIdhbPTQo52bs9c82UeMWN-fKg0o",
+      },
+    })
 
-  const items = await response.json()
-  console.log(items)
+    const items = await response.json()
+    console.log(items)
+
+    const cardRow = document.getElementById("card-row")
+
+    if (items.length > 0) {
+      items.forEach((item) => {
+        const col = document.createElement("div")
+        col.classList.add("col-12", "col-sm-6", "col-md-4", "mb-3")
+        col.innerHTML = generateCard(item)
+
+        cardRow.appendChild(col)
+      })
+    }
+  } catch (err) {
+    document.querySelector("#error-container .text-danger").innerText = err
+  }
 }
 
 window.onload = () => {
