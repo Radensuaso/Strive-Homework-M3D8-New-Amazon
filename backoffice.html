@@ -50,52 +50,60 @@
     </nav>
     <div id="form-container" class="container">
       <h2 class="my-3 text-center">Add Your product</h2>
+      <div id="success-container" class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 text-success"></div>
+      </div>
+      <div id="error-container" class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 text-danger"></div>
+      </div>
       <div class="row justify-content-center">
-        <form class="col-12 col-md-8 col-lg-6">
-          <label for="profuct-name">Product Name:</label>
+        <form class="col-12 col-md-8 col-lg-6" onsubmit="submitItem(event)">
+          <label for="product-name">Product Name:</label>
           <input
-            id="profuct-name"
+            id="product-name"
             class="form-control mb-3"
             type="text"
             placeholder="Name of your product"
             required
           />
 
-          <label for="profuct-brand">Product Brand:</label>
+          <label for="product-brand">Product Brand:</label>
           <input
-            id="profuct-brand"
+            id="product-brand"
             class="form-control mb-3"
             type="text"
             placeholder="Brand of your product"
             required
           />
 
-          <label for="profuct-price">Product Price:</label>
+          <label for="product-price">Product Price:</label>
           <input
-            id="profuct-price"
+            id="product-price"
             class="form-control mb-3"
             type="number"
             placeholder="Price of your product in Euros"
             required
           />
 
-          <label for="profuct-description">Product description:</label>
+          <label for="product-description">Product description:</label>
           <textarea
             class="form-control mb-3"
-            id="profuct-description"
+            id="product-description"
             rows="3"
             placeholder="Description of your product"
             required
           ></textarea>
 
-          <label for="profuct-image">Product image:</label>
+          <label for="product-image">Product image:</label>
           <input
-            id="profuct-image"
+            id="product-image"
             class="form-control mb-3"
             type="text"
             placeholder="Url of the image of your product"
             required
           />
+
+          <button type="submit" class="btn btn-dark">Submit</button>
         </form>
       </div>
     </div>
