@@ -8,7 +8,7 @@ The product model is
 {
 "\_id": "5d318e1a8541744830bef139", //SERVER GENERATED
 "name": "app test 1", //REQUIRED
-"description": "somthing longer", //REQUIRED
+"description": "something longer", //REQUIRED
 "brand": "nokia", //REQUIRED
 "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80", //REQUIRED
 "price": 100, //REQUIRED
