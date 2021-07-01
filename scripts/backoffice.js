@@ -100,10 +100,12 @@ const deleteItem = async function () {
         },
       })
 
+      const item = await response.json()
+
       const alertSuccess = document.querySelector(".alert-success")
       if (response.ok) {
         alertSuccess.classList.remove("d-none")
-        alertSuccess.innerText = `Your Item was Deleted with Success!`
+        alertSuccess.innerText = `Your Item with the ID: ${item._id} was Deleted with Success!`
       }
     } catch (err) {
       if (err) {
