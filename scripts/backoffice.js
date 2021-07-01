@@ -89,25 +89,28 @@ const submitItem = async (event) => {
 
 //function to delete an Item from the API
 const deleteItem = async function () {
-  try {
-    const response = await fetch(endPoint, {
-      method: "DELETE",
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjA5ZmIzNTgxNzAwMTVjMjI3MGMiLCJpYXQiOjE2MjUwNTUzOTEsImV4cCI6MTYyNjI2NDk5MX0.4rreCWruc8iinYHIIdhbPTQo52bs9c82UeMWN-fKg0o",
-      },
-    })
+  const confirmed = confirm("Are you sure you want to delete this?")
+  if (confirmed) {
+    try {
+      const response = await fetch(endPoint, {
+        method: "DELETE",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNjA5ZmIzNTgxNzAwMTVjMjI3MGMiLCJpYXQiOjE2MjUwNTUzOTEsImV4cCI6MTYyNjI2NDk5MX0.4rreCWruc8iinYHIIdhbPTQo52bs9c82UeMWN-fKg0o",
+        },
+      })
 
-    const alertSuccess = document.querySelector(".alert-success")
-    if (response.ok) {
-      alertSuccess.classList.remove("d-none")
-      alertSuccess.innerText = `Your Item with the ID:${item._id} was Deleted with Success!`
-    }
-  } catch (err) {
-    if (err) {
-      const alertDanger = document.querySelector(".alert-danger")
-      alertDanger.classList.remove("d-none")
-      alertDanger.innerText = err
+      const alertSuccess = document.querySelector(".alert-success")
+      if (response.ok) {
+        alertSuccess.classList.remove("d-none")
+        alertSuccess.innerText = `Your Item was Deleted with Success!`
+      }
+    } catch (err) {
+      if (err) {
+        const alertDanger = document.querySelector(".alert-danger")
+        alertDanger.classList.remove("d-none")
+        alertDanger.innerText = err
+      }
     }
   }
 }
