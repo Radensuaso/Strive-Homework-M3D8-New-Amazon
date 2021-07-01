@@ -20,9 +20,6 @@ const getAndDisplaySelectedItem = async function (url, itemID) {
   <div class="row">
     <div class="col-12 col-sm-10 col-md-8 col-lg-6">
     <h2 class="display-4">${item.name}</h2>
-    <p class="lead">
-    ${item.description}
-    </p>
       <ul class="list-group">
         <li class="list-group-item"><strong>Item ID: </strong>${item._id}</li>
         <li class="list-group-item"><strong>Created: </strong>${item.createdAt}</li>

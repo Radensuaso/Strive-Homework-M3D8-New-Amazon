@@ -5,13 +5,23 @@ const generateCard = (item) => {
   <div class="card-body">
     <h5 class="card-title">${item.name}</h5>
     <p class="card-text"><strong>Brand:</strong> ${item.brand}</p>
-    <p class="card-text">${item.description}</p>
+    <p class="description card-text">${item.description}</p>
     <div class="d-flex justify-content-between">
       <a class="btn btn-info" href="../details.html?itemID=${item._id}" role="button">See Details</a>
-      <span class="badge badge-primary d-flex align-items-center px-2">${item.price}€</span>
+      <span class="badge badge-primary d-flex align-items-center px-2">€${item.price}</span>
     </div>
   </div>
     `
+}
+
+const isLoading = async function (loading) {
+  const spinner = document.querySelector(".spinner-grow")
+  console.log(spinner)
+  if (loading) {
+    spinner.classList.remove("d-none")
+  } else {
+    spinner.classList.add("d-none")
+  }
 }
 
 const displayItems = async (url) => {
@@ -25,6 +35,8 @@ const displayItems = async (url) => {
 
     const items = await response.json()
     console.log(items)
+
+    isLoading(false)
 
     const cardRow = document.getElementById("card-row")
 
