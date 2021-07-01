@@ -1,12 +1,15 @@
 const generateCard = (item) => {
   return `
-  <div class="card">
+  <div class="card shadow">
   <img class="img-fluid" src=${item.imageUrl} class="card-img-top" alt="${item.name} picture" />
   <div class="card-body">
     <h5 class="card-title">${item.name}</h5>
     <p class="card-text"><strong>Brand:</strong> ${item.brand}</p>
     <p class="card-text">${item.description}</p>
-    <span class="badge badge-primary">${item.price}€</span>
+    <div class="d-flex justify-content-between">
+      <a class="btn btn-info" href="../details.html?itemID=${item._id}" role="button">See Details</a>
+      <span class="badge badge-primary d-flex align-items-center px-2">${item.price}€</span>
+    </div>
   </div>
     `
 }
