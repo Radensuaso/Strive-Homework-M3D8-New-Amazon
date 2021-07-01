@@ -50,13 +50,13 @@
     </nav>
     <div id="form-container" class="container">
       <h2 class="my-3 text-center">Add Your product</h2>
-      <div id="success-container" class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6 text-success"></div>
-      </div>
-      <div id="error-container" class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6 text-danger"></div>
-      </div>
       <div class="row justify-content-center">
+        <div class="alert alert-success d-none" role="alert">
+          A simple success alert—check it out!
+        </div>
+        <div class="alert alert-danger d-none" role="alert">
+          A simple success alert—check it out!
+        </div>
         <form class="col-12 col-md-8 col-lg-6" onsubmit="submitItem(event)">
           <label for="product-name">Product Name:</label>
           <input
@@ -102,8 +102,19 @@
             placeholder="Url of the image of your product"
             required
           />
-
-          <button type="submit" class="btn btn-dark">Submit</button>
+          <div class="d-flex justify-content-between">
+            <button id="submit-edit-btn" type="submit" class="btn btn-primary">
+              Submit
+            </button>
+            <button
+              id="delete-btn"
+              type="button"
+              class="btn btn-danger d-none"
+              onclick="deleteItem()"
+            >
+              Delete
+            </button>
+          </div>
         </form>
       </div>
     </div>

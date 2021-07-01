@@ -29,8 +29,7 @@ const getAndDisplaySelectedItem = async function (url, itemID) {
         <li class="list-group-item"><strong>Updated: </strong>${item.updatedAt}</li>
       </ul>
       <div class="d-flex justify-content-start mt-2">
-        <button type="button" class="btn btn-warning mr-3">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
+        <a href="../backoffice.html?itemID=${item._id}" type="button" class="btn btn-warning mr-3">Edit</a>
       </div>
     </div>
   </div>
@@ -45,7 +44,7 @@ const getAndDisplaySelectedItem = async function (url, itemID) {
 
 window.onload = () => {
   const url = "https://striveschool-api.herokuapp.com/api/product/"
-  const itemId = new URLSearchParams(window.location.search).get("itemID")
+  const itemID = new URLSearchParams(window.location.search).get("itemID")
 
-  getAndDisplaySelectedItem(url, itemId)
+  getAndDisplaySelectedItem(url, itemID)
 }
