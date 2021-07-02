@@ -9,8 +9,7 @@ const endPoint = itemID ? url + itemID : url
 //method to use depending if there's an ID or not
 const method = itemID ? "PUT" : "POST"
 
-//Check if theres an Id of search if so change the item imputs to what they had previously, and change the method to put
-
+// Loading function
 const isLoading = async function (loading) {
   const spinner = document.querySelector(".spinner-grow")
   console.log(spinner)
@@ -21,6 +20,7 @@ const isLoading = async function (loading) {
   }
 }
 
+//Check if theres an Id of search if so change the item imputs to what they had previously, and change the method to put
 const checkId = async function () {
   if (itemID) {
     const submitEditBtn = document.querySelector("#submit-edit-btn")
