@@ -98,10 +98,10 @@ const submitOrEditItem = async (event) => {
         alertSuccess.classList.remove("d-none")
         alertSuccess.innerText = `Your item was submitted with success! Item ID: ${item._id}`
       }
-      setTimeout(() => {
-        window.location.href = "/"
-      }, 4000)
     }
+    setTimeout(() => {
+      window.location.href = "/"
+    }, 4000)
   } catch (err) {
     if (err) {
       const alertDanger = document.querySelector(".alert-danger")
